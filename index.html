@@ -42,7 +42,7 @@
                         <i class="fas fa-bell-slash"></i>
                     </div>
                     <div class="l-col">
-                        <p>Ricevi notifichedi nuovi messaggi</p>
+                        <p>Ricevi notifiche di nuovi messaggi</p>
                         <a href="#" class="h-text--gray">Attiva notifiche desktop</a>
                     </div>
                 </div>
@@ -52,9 +52,9 @@
                 </div>
 
                 <div class="l-grow l-overflow c-chatList">
-                    <div v-for="(contact, i) in contacts" :key="i" @click="contact.isOpen = true"
-                    class="l-row c-chatList__chat">
-                        <img class="c-avatar" :src="`img/avatar${contact.avatar}.jpg`" alt="User Avatar">
+                    <div v-for="(contact, i) in contacts" :key="i" @click="openChatIndex = i"
+                    class="l-row c-chatList__chat" :class="{ 'c-chatList__chat--open': isOpen(i) }">
+                        <img class="c-avatar" :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name">
                         <p class="c-nome">{{contact.name}}</p>
                     </div>
                     
@@ -66,8 +66,8 @@
             <div class="l-col l-grow c-chat">
 
                 <div class="l-row l-row--centered c-infoBar">
-                    <img class="c-avatar" src="img/avatar_io.jpg" alt="User Avatar">
-                    <p class="l-grow c-nome">Nome Utente</p>
+                    <img class="c-avatar" :src="`img/avatar${contacts[openChatIndex].avatar}.jpg`" alt="User Avatar">
+                    <p class="l-grow c-nome">{{contacts[openChatIndex].name}}</p>
                     <div class="l-row c-infoBar__icons">
                         <button class="c-btnIcon">
                             <i class="fas fa-search"></i>
@@ -82,7 +82,7 @@
                 </div>
 
                 <div class="l-col l-grow l-overflow c-chat__content">
-                    <div v-for="(msg, i) in contacts[0].messages" :key="i" 
+                    <div v-for="(msg, i) in contacts[openChatIndex].messages" :key="i" 
                     class="c-msg" :class="{ 'c-msg--sent': isSend(msg), 'c-msg--received': isReceived(msg)}">
                         <p class="c-msg__text">{{msg.message}}</p>
                         <p class="c-msg__time">{{msg.date}}</p>

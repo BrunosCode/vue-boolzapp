@@ -86,12 +86,8 @@ const app = new Vue (
                         }
                     ],
                 },
-            ]
-        },
-        computed: {
-            opened: function() {
-                return this.contacts.find(contact => contact.visible)
-            },
+            ],
+            openChatIndex: 0,
         },
         methods: {
             isSend: function(msg) {
@@ -100,6 +96,9 @@ const app = new Vue (
             isReceived: function(msg) {
                 return msg.status === "received";
             },
+            isOpen: function(i) {
+                return i === this.openChatIndex;
+            }
         }
     }
 );

@@ -143,7 +143,7 @@ body {
     border-top: solid 1px var(--gray-3);
     padding: .5rem .75rem;
 }
-.c-chatList__chat--active {
+.c-chatList__chat--open {
     background-color: var(--gray-3);
 }
 
