@@ -113,7 +113,7 @@ const app = new Vue (
             sendMsg: function() {
                 if (this.newMsg.message) {
                     let currentTime = new Date();
-                    this.newMsg.date = `${currentTime.toLocaleDateString()} ${currentTime.toLocaleTimeString().replace(" AM","").replace(" PM","")}`;
+                    this.newMsg.date = `${currentTime.toLocaleDateString()} ${currentTime.toLocaleTimeString('it-IT')}`;
                     this.newMsg.status = "sent";
 
                     this.contacts[this.openChatIndex].messages.push(this.newMsg);
