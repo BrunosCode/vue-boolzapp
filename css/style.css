@@ -30,7 +30,7 @@ body {
 /* LAYOUTS  */
 .l-main {
     height: 100vh;
-    padding: 2rem 6rem;
+    padding: 1.5rem 6rem;
     background-color: black;
 }
 
@@ -57,12 +57,11 @@ body {
 
 /* COMPONETS  */
 .c-background {
-    background: linear-gradient(to bottom, var(--darkGreen) 20%, var(--beige) 20%);
+    background: linear-gradient(to bottom, var(--darkGreen) 18%, var(--beige) 18%);
 }
 
 .c-app {
     background-color: var(--gray-0);
-    height: calc(100% - 2rem);
 }
 
 .c-infoBar {
@@ -91,6 +90,7 @@ body {
 .c-icon {
     font-size: 1.5rem;
     color: var(--gray-4);
+    margin: 0 .5rem;
 }
 .c-icon--dark {
     color: var(--gray-5);
@@ -108,9 +108,11 @@ body {
     border-radius: 50%;
     text-align: center;
     line-height: 3rem;
+
     background-color: white;
     color: var(--lightBlue);
-    margin-right: .5rem;
+    
+    margin: 0 .5rem 0 0;
 }
 .c-searchBar {
     background-color: var(--gray-2);
