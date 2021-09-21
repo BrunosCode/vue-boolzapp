@@ -48,12 +48,15 @@
                 </div>
 
                 <div class="l-row l-row--centered c-searchBar">
-                    <input class="l-grow c-input c-searchBar__input" type="text" name="search" id="search" placeholder="Cerca o inizia una nuova chat">
+                    <input v-model="searchParameter" @keyup="filteringContacts()"
+                    class="l-grow c-input c-searchBar__input" 
+                    type="text" name="search" id="search" placeholder="Cerca o inizia una nuova chat">
                 </div>
 
                 <div class="l-grow l-overflow c-chatList">
-                    <div v-for="(contact, i) in contacts" :key="i" @click="openChatIndex = i"
-                    class="l-row c-chatList__chat" :class="{ 'c-chatList__chat--open': isOpen(i) }">
+                    <div v-for="contact in filteringContacts()" :key="contact.index" 
+                    @click="openChatIndex = contact.index" 
+                    class="l-row c-chatList__chat" :class="{ 'c-chatList__chat--open': isOpen(contact.index) }">
                         <img class="c-avatar" :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name">
                         <p class="c-nome">{{contact.name}}</p>
                     </div>

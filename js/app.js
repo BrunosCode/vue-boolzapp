@@ -88,9 +88,8 @@ const app = new Vue (
                 },
             ],
             openChatIndex: 0,
-            newMsg: {
-
-            }
+            newMsg: {},
+            searchParameter: ""
         },
         methods: {
             isSend: function(msg) {
@@ -122,6 +121,11 @@ const app = new Vue (
 
                     setTimeout(this.responseMsg, 2000);
                 }
+            },
+            filteringContacts: function() {
+                let mappedContacts = this.contacts.map((contact, i) => ({...contact, index : i}));
+                let filteredContacts = mappedContacts.filter(contact => contact.name.toLowerCase().includes(this.searchParameter.toLowerCase()));
+                return filteredContacts;
             }
         }
     }
