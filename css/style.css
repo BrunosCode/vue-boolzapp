@@ -17,7 +17,7 @@ body {
     --gray-3: #EAEAEA;
     --gray-4: #B1B1B1;
     --gray-5: #6B7376;
-    --black: black;
+    --black: #070707;
     
     --lightBeige: #F3EEEA;
     --beige: #DADBD3;
@@ -59,11 +59,11 @@ body {
 .c-background {
     background: linear-gradient(to bottom, var(--darkGreen) 18%, var(--beige) 18%);
 }
-
 .c-app {
     background-color: var(--gray-0);
 }
 
+/* common componets  */
 .c-infoBar {
     height: 4rem;
     padding: 1rem;
@@ -84,16 +84,22 @@ body {
 .c-input {
     border: none;
     border-radius: .5rem;
-    padding: .5rem;
+    padding: .75rem .5rem;
 }
 
-.c-icon {
+.c-btnIcon {
     font-size: 1.5rem;
     color: var(--gray-4);
     margin: 0 .5rem;
+    border: none;
+    background-color: unset;
 }
-.c-icon--dark {
+.c-btnIcon--dark {
     color: var(--gray-5);
+}
+.c-btnIcon:hover {
+    cursor: pointer;
+    transform: scale(.9);
 }
 
 /* first column */
@@ -108,19 +114,31 @@ body {
     border-radius: 50%;
     text-align: center;
     line-height: 3rem;
+    font-size: 1.5rem;
 
     background-color: white;
     color: var(--lightBlue);
     
-    margin: 0 .5rem 0 0;
+    margin-right: .5rem;
 }
+
 .c-searchBar {
     background-color: var(--gray-2);
     padding: .25rem;
+    position: relative;
 }
-/* .c-searchBar__input {
-    padding: .25rem 1.25rem;
-} */
+.c-searchBar::before {
+    position: absolute;
+    left: 1.5rem;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f002";
+    color: var(--gray-4);
+}
+.c-searchBar__input {
+    padding-left: 3.5rem;
+}
+
 .c-chatList__chat {
     border-top: solid 1px var(--gray-3);
     padding: .5rem .75rem;
@@ -130,12 +148,40 @@ body {
 }
 
 /* second column  */
+/* open chat */
 .c-chat {
     border-left: solid 2px var(--gray-4);
 }
 .c-chat__content {
     background-image: url(../img/mine.jpg);
+    padding: 1rem 7.5%;
 }
+.c-msg {
+    margin-top: .5rem;
+    padding: .325rem;
+    border-radius: .75rem;
+    max-width: 50%;
+    min-width: 30%;
+}
+.c-msg--sent {
+    align-self: flex-end;
+    background-color: var(--lightGreen);
+}
+.c-msg--received {
+    align-self: flex-start;
+    background-color: var(--gray-0);
+}
+.c-msg__text {
+    font-size: .875rem;
+    margin: .325rem;
+}
+.c-msg__time {
+    font-size: .625rem;
+    color: var(--gray-4);
+    text-align: right;
+}
+
+/* Input bar */
 .c-inputBar {
     background-color: var(--lightBeige);
     padding: .5rem 2rem; 
