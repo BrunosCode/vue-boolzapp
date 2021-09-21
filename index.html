@@ -17,19 +17,40 @@
 </head>
 <body>
     <main id="root" class="l-main c-background">
+        <!-- App window -->
         <div class="l-row c-app">
+            <!-- First column -->
             <div class="l-col l-grow--half c-sidebar">
                 <div class="l-row l-row--centered c-infoBar">
                     <img class="c-avatar" src="img/avatar_io.jpg" alt="User Avatar">
                     <p class="l-grow c-nome">Nome Utente</p>
-                    <div class="c-infoBar__icons">
-                        <i class="fas fa-times"></i>
-                        <i class="fas fa-times"></i>
-                        <i class="fas fa-times"></i>
+                    <div class="l-row c-infoBar__icons">
+                        <div class="c-icon">
+                            <i class="fas fa-times"></i>
+                        </div>
+                        <div class="c-icon">
+                            <i class="fas fa-times"></i>
+                        </div>
+                        <div class="c-icon">
+                            <i class="fas fa-times"></i>
+                        </div>
                     </div>
                 </div>
-                <div class="c-alert">alert</div>
-                <div class="c-searchBar">searchbar</div>
+
+                <div class="l-row l-row--centered c-alert">
+                    <div class="c-icon c-alert__icon">
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <div class="l-col">
+                        <p>Ricevi notifichedi nuovi messaggi</p>
+                        <a href="#" class="h-text--gray">Attiva notifiche desktop</a>
+                    </div>
+                </div>
+
+                <div class="l-row c-searchBar">
+                    <input class="l-grow c-input c-searchBar__input" type="text" name="search" id="search" placeholder="Cerca o inizia una nuova chat">
+                </div>
+
                 <div class="l-grow l-overflow c-chatList">
                     <div class="l-row c-chatList__chat c-chatList__chat--active">
                         <img class="c-avatar" src="img/avatar_io.jpg" alt="User Avatar">
@@ -49,26 +70,45 @@
                     </div>
                 </div>
             </div>
+            <!-- /First column -->
+
+            <!-- Second column  -->
             <div class="l-col l-grow c-chat">
+
                 <div class="l-row l-row--centered c-infoBar">
                     <img class="c-avatar" src="img/avatar_io.jpg" alt="User Avatar">
                     <p class="l-grow c-nome">Nome Utente</p>
-                    <div class="c-infoBar__icons">
+                    <div class="l-row c-infoBar__icons">
+                        <div class="c-icon">
+                            <i class="fas fa-times"></i>
+                        </div>
+                        <div class="c-icon">
+                            <i class="fas fa-times"></i>
+                        </div>
+                        <div class="c-icon">
+                            <i class="fas fa-times"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="l-grow l-overflow c-chat__content">content chat</div>
+
+                <div class="l-row c-inputBar">
+                    <div class="c-icon  c-icon--dark">
                         <i class="fas fa-times"></i>
-                        <i class="fas fa-times"></i>
+                    </div>
+                    <input class="l-grow c-input c-inputBar__input" type="text" name="write" id="write" placeholder="Scrivi un messaggio">
+                    <div class="c-icon c-icon--dark">
                         <i class="fas fa-times"></i>
                     </div>
                 </div>
-                <div class="l-grow l-overflow c-chat__content">content chat</div>
-                <div class="c-inputBar">
-                    <i class="fas fa-times"></i>
-                    inputbar
-                    <i class="fas fa-times"></i>
-                </div>
             </div>
+            <!-- /Second column  -->
         </div>
+        <!-- /App window -->
+        
     </main>
-
+    
     <!-- Vue development version -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <!-- /Vue development version -->
