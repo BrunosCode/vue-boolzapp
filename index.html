@@ -13,50 +13,58 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- /font awesome  -->
     <link rel="stylesheet" href="css/style.css">
-    <title>To do list</title>
+    <title>Boolzapp</title>
 </head>
 <body>
     <main id="root" class="l-main c-background">
         <div class="l-row c-app">
-            <div class="l-col l-grow--half c-sidebar h-border">
-                <div class="l-row c-infoBar">
+            <div class="l-col l-grow--half c-sidebar">
+                <div class="l-row l-row--centered c-infoBar">
                     <img class="c-avatar" src="img/avatar_io.jpg" alt="User Avatar">
-                    <p class="c-nome">Nome Utente</p>
+                    <p class="l-grow c-nome">Nome Utente</p>
                     <div class="c-infoBar__icons">
-
+                        <i class="fas fa-times"></i>
+                        <i class="fas fa-times"></i>
+                        <i class="fas fa-times"></i>
                     </div>
                 </div>
-                <div class="c-alert h-border ">alert</div>
-                <div class="c-searchBar h-border ">searchbar</div>
-                <div class="c-chatList h-border ">
-                    <div class="l-grow c-chatList__chat h-border ">
+                <div class="c-alert">alert</div>
+                <div class="c-searchBar">searchbar</div>
+                <div class="l-grow l-overflow c-chatList">
+                    <div class="l-row c-chatList__chat c-chatList__chat--active">
                         <img class="c-avatar" src="img/avatar_io.jpg" alt="User Avatar">
                         <p class="c-nome">Nome Utente</p>
                     </div>
-                    <div class="c-chatList__chat h-border ">
+                    <div class="l-row c-chatList__chat">
                         <img class="c-avatar" src="img/avatar_io.jpg" alt="User Avatar">
                         <p class="c-nome">Nome Utente</p>
                     </div>
-                    <div class="c-chatList__chat h-border ">
+                    <div class="l-row c-chatList__chat">
                         <img class="c-avatar" src="img/avatar_io.jpg" alt="User Avatar">
                         <p class="c-nome">Nome Utente</p>
                     </div>
-                    <div class="c-chatList__chat h-border ">
+                    <div class="l-row c-chatList__chat">
                         <img class="c-avatar" src="img/avatar_io.jpg" alt="User Avatar">
                         <p class="c-nome">Nome Utente</p>
                     </div>
                 </div>
             </div>
-            <div class="l-col l-grow c-chat h-border">
-                <div class="l-row c-infoBar h-border">
+            <div class="l-col l-grow c-chat">
+                <div class="l-row l-row--centered c-infoBar">
                     <img class="c-avatar" src="img/avatar_io.jpg" alt="User Avatar">
-                    <p class="c-nome">Nome Utente</p>
+                    <p class="l-grow c-nome">Nome Utente</p>
                     <div class="c-infoBar__icons">
-                        
+                        <i class="fas fa-times"></i>
+                        <i class="fas fa-times"></i>
+                        <i class="fas fa-times"></i>
                     </div>
                 </div>
-                <div class="l-grow c-chat__content h-border">content chat</div>
-                <div class="c-inputBar h-border"> inputbar</div>
+                <div class="l-grow l-overflow c-chat__content">content chat</div>
+                <div class="c-inputBar">
+                    <i class="fas fa-times"></i>
+                    inputbar
+                    <i class="fas fa-times"></i>
+                </div>
             </div>
         </div>
     </main>
