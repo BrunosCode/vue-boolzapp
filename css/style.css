@@ -8,3 +8,47 @@
 body {
     font-family: 'Lato', sans-serif;
 }
+
+/* LAYOUTS  */
+.l-main {
+    height: 100vh;
+    padding: 2rem 6rem;
+    background-color: black;
+}
+
+.l-row {
+    display: flex;
+    flex-direction: row;
+}
+.l-col {
+    display: flex;
+    flex-direction: column;
+}
+.l-grow {
+    flex-grow: 1;
+}
+.l-grow--half {
+    flex-grow: .5;
+}
+
+
+
+.c-app {
+    background-color: white;
+    height: calc(100% - 2rem);
+}
+.c-infoBar {
+    height: 4rem;
+    background-color: gray;
+}
+
+.c-avatar {
+    display: block;
+    width: 3rem;
+    border-radius: 50%;
+}
+
+
+.h-border {
+    border: 1px solid black;
+}
