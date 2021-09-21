@@ -88,6 +88,9 @@ const app = new Vue (
                 },
             ],
             openChatIndex: 0,
+            newMsg: {
+
+            }
         },
         methods: {
             isSend: function(msg) {
@@ -98,6 +101,16 @@ const app = new Vue (
             },
             isOpen: function(i) {
                 return i === this.openChatIndex;
+            },
+            sendMsg: function() {
+                if (this.newMsg.message) {
+                    let currentTime = new Date()
+                    this.newMsg.date = `${currentTime.toLocaleDateString()} ${currentTime.toLocaleTimeString().replace(" AM","").replace(" PM","")}`;
+                    this.newMsg.status = "sent";
+
+                    this.contacts[this.openChatIndex].messages.push(this.newMsg);
+                    this.newMsg = {};
+                }
             }
         }
     }

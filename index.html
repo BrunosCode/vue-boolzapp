@@ -94,7 +94,9 @@
                     <div class="c-btnIcon  c-btnIcon--dark">
                         <i class="far fa-smile"></i>
                     </div>
-                    <input class="l-grow c-input c-inputBar__input" type="text" name="write" id="write" placeholder="Scrivi un messaggio">
+                    <input v-model="newMsg.message" @keyup.enter="sendMsg()"
+                    class="l-grow c-input c-inputBar__input" 
+                    type="text" name="write" id="write" placeholder="Scrivi un messaggio">
                     <div class="c-btnIcon c-btnIcon--dark">
                         <i class="fas fa-microphone"></i>
                     </div>
