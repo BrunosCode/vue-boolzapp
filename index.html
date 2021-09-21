@@ -52,22 +52,12 @@
                 </div>
 
                 <div class="l-grow l-overflow c-chatList">
-                    <div class="l-row c-chatList__chat c-chatList__chat--active">
-                        <img class="c-avatar" src="img/avatar_io.jpg" alt="User Avatar">
-                        <p class="c-nome">Nome Utente</p>
+                    <div v-for="(contact, i) in contacts" :key="i" @click="contact.isOpen = true"
+                    class="l-row c-chatList__chat">
+                        <img class="c-avatar" :src="`img/avatar${contact.avatar}.jpg`" alt="User Avatar">
+                        <p class="c-nome">{{contact.name}}</p>
                     </div>
-                    <div class="l-row c-chatList__chat">
-                        <img class="c-avatar" src="img/avatar_io.jpg" alt="User Avatar">
-                        <p class="c-nome">Nome Utente</p>
-                    </div>
-                    <div class="l-row c-chatList__chat">
-                        <img class="c-avatar" src="img/avatar_io.jpg" alt="User Avatar">
-                        <p class="c-nome">Nome Utente</p>
-                    </div>
-                    <div class="l-row c-chatList__chat">
-                        <img class="c-avatar" src="img/avatar_io.jpg" alt="User Avatar">
-                        <p class="c-nome">Nome Utente</p>
-                    </div>
+                    
                 </div>
             </div>
             <!-- /First column -->
@@ -92,18 +82,12 @@
                 </div>
 
                 <div class="l-col l-grow l-overflow c-chat__content">
-                    <div class="c-msg c-msg--sent">
-                        <p class="c-msg__text">Hai portato a spasso il cane?</p>
-                        <p class="c-msg__time">10/01/2020 15:30:55</p>
+                    <div v-for="(msg, i) in contacts[0].messages" :key="i" 
+                    class="c-msg" :class="{ 'c-msg--sent': isSend(msg), 'c-msg--received': isReceived(msg)}">
+                        <p class="c-msg__text">{{msg.message}}</p>
+                        <p class="c-msg__time">{{msg.date}}</p>
                     </div>
-                    <div class="c-msg c-msg--sent">
-                        <p class="c-msg__text">Hai portato a spasso il cane?</p>
-                        <p class="c-msg__time">10/01/2020 15:30:55</p>
-                    </div>
-                    <div class="c-msg c-msg--received">
-                        <p class="c-msg__text">Ricordati di dargli da mangiare</p>
-                        <p class="c-msg__time">10/01/2020 15:50:00</p>
-                    </div>
+                    
                 </div>
 
                 <div class="l-row l-row--centered c-inputBar">
