@@ -102,14 +102,25 @@ const app = new Vue (
             isOpen: function(i) {
                 return i === this.openChatIndex;
             },
+            responseMsg: function() {
+                let currentTime = new Date();
+                let responseMsg = {
+                    date: `${currentTime.toLocaleDateString()} ${currentTime.toLocaleTimeString().replace(" AM","").replace(" PM","")}`,
+                    message: 'ok',
+                    status: 'received'
+                }
+                this.contacts[this.openChatIndex].messages.push(responseMsg);
+            },
             sendMsg: function() {
                 if (this.newMsg.message) {
-                    let currentTime = new Date()
+                    let currentTime = new Date();
                     this.newMsg.date = `${currentTime.toLocaleDateString()} ${currentTime.toLocaleTimeString().replace(" AM","").replace(" PM","")}`;
                     this.newMsg.status = "sent";
 
                     this.contacts[this.openChatIndex].messages.push(this.newMsg);
                     this.newMsg = {};
+
+                    setTimeout(this.responseMsg, 2000);
                 }
             }
         }
