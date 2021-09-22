@@ -48,7 +48,7 @@
                 </div>
 
                 <div class="l-row l-row--centered c-searchBar">
-                    <input v-model="searchParameter" @keyup="filteringContacts()"
+                    <input v-model="searchParameter" @input="filteringContacts()"
                     class="l-grow c-input c-searchBar__input" 
                     type="text" name="search" id="search" placeholder="Cerca o inizia una nuova chat">
                 </div>
