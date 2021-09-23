@@ -88,9 +88,15 @@ const app = new Vue (
                 },
             ],
             openChatIndex: 0,
+            openMenuIndex: -1,
             newMsg: {},
             searchParameter: ""
         },
+        // computed: {
+        //     mappedMessages: function(messages) {
+        //         return this.contacts[this.openChatIndex].messages.map((msg, i) => ({...msg, menuOpen : false}));
+        //     }
+        // },
         methods: {
             isSend: function(msg) {
                 return msg.status === "sent";
@@ -100,6 +106,7 @@ const app = new Vue (
             },
             isOpen: function(chatIndex) {
                 return chatIndex === this.openChatIndex;
+
             },
             responseMsg: function() {
                 let currentTime = new Date();
@@ -126,6 +133,12 @@ const app = new Vue (
                 let mappedContacts = this.contacts.map((contact, i) => ({...contact, index : i}));
                 let filteredContacts = mappedContacts.filter(contact => contact.name.toLowerCase().includes(this.searchParameter.toLowerCase()));
                 return filteredContacts;
+            },
+            openMenu: function(i) {
+                (this.openMenuIndex === -1) ? this.openMenuIndex = i : this.openMenuIndex = -1;
+            },
+            deleteMsg: function(index) {
+                this.contacts[this.openChatIndex].messages.splice(index, 1);
             }
         }
     }

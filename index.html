@@ -85,8 +85,19 @@
                 </div>
 
                 <div class="l-col l-grow l-overflow c-chat__content">
-                    <div v-for="(msg, i) in contacts[openChatIndex].messages" :key="i" 
-                    class="c-msg" :class="{ 'c-msg--sent': isSend(msg), 'c-msg--received': isReceived(msg)}">
+                    <div v-for="(msg, i) in contacts[openChatIndex].messages" :key="i"
+                    class="c-msg" @click="openMenu(i)"
+                    :class="{ 'c-msg--sent': isSend(msg), 'c-msg--received': isReceived(msg)}">
+                        <div v-if="openMenuIndex === i"
+                        @mouseleave="openMenuIndex = -1"
+                            class="c-smMenu">
+                                <div class="c-smMenu__btn">Message Info</div>
+                                <div class="c-smMenu__btn"
+                                @click="deleteMsg(i)">Remove for All</div>
+                        </div>
+                        <button class="c-msg__btn">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
                         <p class="c-msg__text">{{msg.message}}</p>
                         <p class="c-msg__time">{{msg.date}}</p>
                     </div>
