@@ -87,16 +87,12 @@ const app = new Vue (
                     ],
                 },
             ],
+            hiddenSideBar: true,
             openChatIndex: 0,
             openMenuIndex: -1,
             newMsg: {},
             searchParameter: ""
         },
-        // computed: {
-        //     mappedMessages: function(messages) {
-        //         return this.contacts[this.openChatIndex].messages.map((msg, i) => ({...msg, menuOpen : false}));
-        //     }
-        // },
         methods: {
             isSend: function(msg) {
                 return msg.status === "sent";
@@ -106,7 +102,6 @@ const app = new Vue (
             },
             isOpen: function(chatIndex) {
                 return chatIndex === this.openChatIndex;
-
             },
             responseMsg: function() {
                 let currentTime = new Date();

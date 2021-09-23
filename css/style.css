@@ -31,7 +31,6 @@ body {
 .l-main {
     height: 100vh;
     padding: 1.5rem 6rem;
-    background-color: black;
 }
 
 .l-row {
@@ -102,6 +101,10 @@ body {
     transform: scale(.9);
 }
 
+.c-burgerBtn {
+    display: none;
+}
+
 /* first column */
 .c-alert {
     background-color: var(--lightBlue);
@@ -142,6 +145,10 @@ body {
 .c-chatList__chat {
     border-top: solid 1px var(--gray-3);
     padding: .5rem .75rem;
+}
+.c-chatList__chat:hover {
+    cursor: pointer;
+    background-color: var(--gray-3);
 }
 .c-chatList__chat--open {
     background-color: var(--gray-3);
@@ -236,5 +243,24 @@ body {
 }
 .h-border {
     border: 1px solid black;
+}
+
+
+/* Tablet Query */
+@media screen and (max-width: 1200px) {
+    .l-main {
+        padding: 0;
+    }
+}
+@media screen and (max-width: 800px) {
+    .c-sidebar{
+        display: none;
+    }
+    .c-sidebar.h-toggle {
+        display: block;
+    }
+    .c-burgerBtn {
+        display: block;
+    }    
 }
 

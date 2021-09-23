@@ -20,7 +20,8 @@
         <!-- App window -->
         <div class="l-row l-grow c-app">
             <!-- First column -->
-            <div class="l-col l-grow--half c-sidebar">
+            <div @mouseleave="hiddenSideBar = false" 
+                class="l-col l-grow--half c-sidebar" :class="{'h-toggle': hiddenSideBar}">
                 <div class="l-row l-row--centered c-infoBar">
                     <img class="c-avatar" src="img/avatar_io.jpg" alt="User Avatar">
                     <p class="l-grow c-nome">Nome Utente</p>
@@ -33,6 +34,10 @@
                         </button>
                         <button class="c-btnIcon">
                             <i class="fas fa-ellipsis-v"></i>
+                        </button>
+                        <button @click="hiddenSideBar = false"
+                            class="c-btnIcon c-burgerBtn">
+                            <i class="fas fa-times"></i>
                         </button>
                     </div>
                 </div>
@@ -69,6 +74,9 @@
             <div class="l-col l-grow c-chat">
 
                 <div class="l-row l-row--centered c-infoBar">
+                    <button class="c-btnIcon c-burgerBtn" @click="hiddenSideBar = true">
+                        <i class="fas fa-bars"></i>
+                    </button>
                     <img class="c-avatar" :src="`img/avatar${contacts[openChatIndex].avatar}.jpg`" alt="User Avatar">
                     <p class="l-grow c-nome">{{contacts[openChatIndex].name}}</p>
                     <div class="l-row c-infoBar__icons">
@@ -86,11 +94,11 @@
 
                 <div class="l-col l-grow l-overflow c-chat__content">
                     <div v-for="(msg, i) in contacts[openChatIndex].messages" :key="i"
-                    class="c-msg" @click="openMenu(i)"
-                    :class="{ 'c-msg--sent': isSend(msg), 'c-msg--received': isReceived(msg)}">
+                    @click="openMenu(i)" @mouseleave="openMenuIndex = -1"
+                    class="c-msg" :class="(msg.status === 'sent') ? 'c-msg--sent' : 'c-msg--received'">
                         <div v-if="openMenuIndex === i"
-                        @mouseleave="openMenuIndex = -1"
                             class="c-smMenu">
+                                <div class="c-smMenu__background"></div>
                                 <div class="c-smMenu__btn">Message Info</div>
                                 <div class="c-smMenu__btn"
                                 @click="deleteMsg(i)">Remove for All</div>
