@@ -70,11 +70,11 @@ body {
 }
 
 .c-nome {
-    margin-left: .5rem;
     font-weight: 700;
 }
 
 .c-avatar {
+    margin-right: .5rem;
     display: block;
     width: 3rem;
     border-radius: 50%;
@@ -152,6 +152,15 @@ body {
 }
 .c-chatList__chat--open {
     background-color: var(--gray-3);
+}
+.c-chatList__newMsgCounter {
+    margin-left: auto;
+    background-color: var(--gray-2);
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 1.5rem;
 }
 
 /* second column  */

@@ -60,10 +60,19 @@
 
                 <div class="l-grow l-overflow c-chatList">
                     <div v-for="contact in filteredContacts" :key="contact.index" 
-                    @click="openChatIndex = contact.index" 
+                    @click="openChat(contact)" 
                     class="l-row c-chatList__chat" :class="{ 'c-chatList__chat--open': isOpen(contact.index) }">
                         <img class="c-avatar" :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name">
-                        <p class="c-nome">{{contact.name}}</p>
+                        <div class="l-col l-grow">
+                            <p class="c-nome">{{contact.name}}</p>
+                            <p class="h-text--gray">{{contact.messages.at(-1).message}}</p>
+                        </div>
+                        <div class="l-col">
+                            <p class="h-text--gray">{{contact.messages.at(-1).date}}</p>
+                            <div v-if="contact.notViewedMsg > 0"
+                                class="c-chatList__newMsgCounter">{{contact.notViewedMsg}}
+                            </div>
+                        </div>
                     </div>
                     
                 </div>
@@ -78,7 +87,10 @@
                         <i class="fas fa-bars"></i>
                     </button>
                     <img class="c-avatar" :src="`img/avatar${contacts[openChatIndex].avatar}.jpg`" alt="User Avatar">
-                    <p class="l-grow c-nome">{{contacts[openChatIndex].name}}</p>
+                    <div class="l-col l-grow">
+                        <p class="c-nome">{{contacts[openChatIndex].name}}</p>
+                        <p class="h-text--gray">Last access at {{contacts[openChatIndex].messages.at(-1).date}}</p>
+                    </div>
                     <div class="l-row c-infoBar__icons">
                         <button class="c-btnIcon">
                             <i class="fas fa-search"></i>

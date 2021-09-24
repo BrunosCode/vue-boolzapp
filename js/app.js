@@ -94,10 +94,17 @@ const app = new Vue (
             searchParameter: ""
         },
         computed: {
+            mappedContacts: function() {
+                return this.contacts.map((contact, i) => (
+                    {
+                        ...contact, 
+                        index : i,
+                        notViewedMsg: 0
+                    }
+                    ));
+            },
             filteredContacts: function() {
-                let mappedContacts = this.contacts.map((contact, i) => ({...contact, index : i}));
-                let filteredContacts = mappedContacts.filter(contact => contact.name.toLowerCase().includes(this.searchParameter.toLowerCase()));
-                return filteredContacts;
+                return this.mappedContacts.filter(contact => contact.name.toLowerCase().includes(this.searchParameter.toLowerCase()));
             },
         },
         methods: {
@@ -107,17 +114,30 @@ const app = new Vue (
             isReceived: function(msg) {
                 return msg.status === "received";
             },
+            openChat: function(chat) {
+                this.openChatIndex = chat.index; 
+                chat.notViewedMsg = 0;
+            },
             isOpen: function(chatIndex) {
                 return chatIndex === this.openChatIndex;
             },
             responseMsg: function() {
-                let currentTime = new Date();
-                let responseMsg = {
-                    date: `${currentTime.toLocaleDateString('it-IT')} ${currentTime.toLocaleTimeString('it-IT')}`,
-                    message: 'ok',
-                    status: 'received'
-                }
-                this.contacts[this.openChatIndex].messages.push(responseMsg);
+
+                // traing too show how many unread messagges there are for each contact
+                let chatIndex = this.openChatIndex;
+                setTimeout( () => {
+                    let currentTime = new Date();
+                    let responseMsg = {
+                        date: `${currentTime.toLocaleDateString('it-IT')} ${currentTime.toLocaleTimeString('it-IT')}`,
+                        message: 'ok',
+                        status: 'received'
+                    }
+                    this.contacts[chatIndex].messages.push(responseMsg);
+    
+                    if (!this.isOpen(chatIndex)) {
+                        this.mappedContacts[chatIndex].notViewedMsg += 1;
+                    }
+                }, 3000);
             },
             sendMsg: function() {
                 if (this.newMsg.message) {
@@ -128,7 +148,7 @@ const app = new Vue (
                     this.contacts[this.openChatIndex].messages.push(this.newMsg);
                     this.newMsg = {};
 
-                    setTimeout(this.responseMsg, 2000);
+                    setTimeout(this.responseMsg(this.openChatIndex), 2000);
                 }
             },
             openMenu: function(i) {
