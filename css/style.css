@@ -182,6 +182,7 @@ body {
 .c-msg__text {
     font-size: .875rem;
     margin: .325rem;
+    word-break: break-all;
 }
 .c-msg__time {
     font-size: .625rem;

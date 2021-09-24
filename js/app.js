@@ -93,6 +93,13 @@ const app = new Vue (
             newMsg: {},
             searchParameter: ""
         },
+        computed: {
+            filteredContacts: function() {
+                let mappedContacts = this.contacts.map((contact, i) => ({...contact, index : i}));
+                let filteredContacts = mappedContacts.filter(contact => contact.name.toLowerCase().includes(this.searchParameter.toLowerCase()));
+                return filteredContacts;
+            },
+        },
         methods: {
             isSend: function(msg) {
                 return msg.status === "sent";
@@ -123,11 +130,6 @@ const app = new Vue (
 
                     setTimeout(this.responseMsg, 2000);
                 }
-            },
-            filteringContacts: function() {
-                let mappedContacts = this.contacts.map((contact, i) => ({...contact, index : i}));
-                let filteredContacts = mappedContacts.filter(contact => contact.name.toLowerCase().includes(this.searchParameter.toLowerCase()));
-                return filteredContacts;
             },
             openMenu: function(i) {
                 (this.openMenuIndex === -1) ? this.openMenuIndex = i : this.openMenuIndex = -1;

@@ -53,13 +53,13 @@
                 </div>
 
                 <div class="l-row l-row--centered c-searchBar">
-                    <input v-model="searchParameter" @input="filteringContacts()"
+                    <input v-model="searchParameter"
                     class="l-grow c-input c-searchBar__input" 
                     type="text" name="search" id="search" placeholder="Cerca o inizia una nuova chat">
                 </div>
 
                 <div class="l-grow l-overflow c-chatList">
-                    <div v-for="contact in filteringContacts()" :key="contact.index" 
+                    <div v-for="contact in filteredContacts" :key="contact.index" 
                     @click="openChatIndex = contact.index" 
                     class="l-row c-chatList__chat" :class="{ 'c-chatList__chat--open': isOpen(contact.index) }">
                         <img class="c-avatar" :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name">
@@ -94,9 +94,9 @@
 
                 <div class="l-col l-grow l-overflow c-chat__content">
                     <div v-for="(msg, i) in contacts[openChatIndex].messages" :key="i"
-                    @click="openMenu(i)" @mouseleave="openMenuIndex = -1"
+                    @click="msg.openMenu = true" @mouseleave="openMenuIndex = -1"
                     class="c-msg" :class="(msg.status === 'sent') ? 'c-msg--sent' : 'c-msg--received'">
-                        <div v-if="openMenuIndex === i"
+                        <div v-if="msg.openMenu === true"
                             class="c-smMenu">
                                 <div class="c-smMenu__background"></div>
                                 <div class="c-smMenu__btn">Message Info</div>
