@@ -45,6 +45,7 @@ body {
     justify-content: space-between;
 }
 .l-col {
+    height: 100%;
     display: flex;
     flex-direction: column;
 }
@@ -305,9 +306,6 @@ body {
         display: block;
     }  
 
-    /* .c-chat {
-        width: 100vw;
-    }   */
 }
 @media screen and (max-width: 500px) {
     .c-sidebar{

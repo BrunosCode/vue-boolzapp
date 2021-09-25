@@ -108,9 +108,9 @@
 
                 <div class="l-col l-grow l-overflow c-chat__content">
                     <div v-for="(msg, i) in contacts[openChatIndex].messages" :key="i"
-                    @click="msg.openMenu = true" @mouseleave="openMenuIndex = -1"
+                    @click="openMenuIndex = i" @mouseleave="openMenuIndex = -1"
                     class="c-msg" :class="(msg.status === 'sent') ? 'c-msg--sent' : 'c-msg--received'">
-                        <div v-if="msg.openMenu === true"
+                        <div v-if="openMenuIndex === i"
                             class="c-smMenu">
                                 <div class="c-smMenu__background"></div>
                                 <div class="c-smMenu__btn">Message Info</div>
