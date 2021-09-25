@@ -66,10 +66,10 @@
                         <div class="l-col l-grow">
                             <div class="l-row">
                                 <p class="c-nome l-grow">{{contact.name}}</p>
-                                <small class="h-text--gray h-text--right">{{contact.messages.at(-1).date}}</small>
+                                <small class="h-text--gray h-text--right">{{contact.messages[contact.messages.length - 1].date}}</small>
                             </div>
                             <div class="l-row">
-                                <p class="h-text--gray c-chatList__lastMsg">{{contact.messages.at(-1).message}}</p>
+                                <p class="h-text--gray c-chatList__lastMsg">{{contact.messages[contact.messages.length - 1].message}}</p>
                                 <div v-if="contact.notViewedMsg > 0"
                                     class="c-chatList__newMsgCounter">{{contact.notViewedMsg}}
                                 </div>
@@ -91,7 +91,7 @@
                     <img class="c-avatar" :src="`img/avatar${contacts[openChatIndex].avatar}.jpg`" alt="User Avatar">
                     <div class="l-col l-grow l-overflow--hidden">
                         <p class="c-nome c-chat__info">{{contacts[openChatIndex].name}}</p>
-                        <p class="h-text--gray c-chat__info">Last access at {{contacts[openChatIndex].messages.at(-1).date}}</p>
+                        <p class="h-text--gray c-chat__info">Last access at {{contacts[openChatIndex].messages[contacts[openChatIndex].messages.length - 1].date}}</p>
                     </div>
                     <div class="l-row c-infoBar__icons">
                         <button class="c-btnIcon">
