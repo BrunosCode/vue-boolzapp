@@ -117,6 +117,7 @@ const app = new Vue (
             openChat: function(chat) {
                 this.openChatIndex = chat.index; 
                 chat.notViewedMsg = 0;
+                this.hiddenSideBar = false;
             },
             isOpen: function(chatIndex) {
                 return chatIndex === this.openChatIndex;

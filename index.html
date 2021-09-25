@@ -20,7 +20,7 @@
         <!-- App window -->
         <div class="l-row l-grow c-app">
             <!-- First column -->
-            <div @mouseleave="hiddenSideBar = false" 
+            <div
                 class="l-col l-grow--half c-sidebar" :class="{'h-toggle': hiddenSideBar}">
                 <div class="l-row l-row--centered c-infoBar">
                     <img class="c-avatar" src="img/avatar_io.jpg" alt="User Avatar">
@@ -36,7 +36,7 @@
                             <i class="fas fa-ellipsis-v"></i>
                         </button>
                         <button @click="hiddenSideBar = false"
-                            class="c-btnIcon c-burgerBtn">
+                            class="c-btnIcon c-exitBtn">
                             <i class="fas fa-times"></i>
                         </button>
                     </div>
@@ -64,13 +64,15 @@
                     class="l-row c-chatList__chat" :class="{ 'c-chatList__chat--open': isOpen(contact.index) }">
                         <img class="c-avatar" :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name">
                         <div class="l-col l-grow">
-                            <p class="c-nome">{{contact.name}}</p>
-                            <p class="h-text--gray">{{contact.messages.at(-1).message}}</p>
-                        </div>
-                        <div class="l-col">
-                            <p class="h-text--gray">{{contact.messages.at(-1).date}}</p>
-                            <div v-if="contact.notViewedMsg > 0"
-                                class="c-chatList__newMsgCounter">{{contact.notViewedMsg}}
+                            <div class="l-row">
+                                <p class="c-nome l-grow">{{contact.name}}</p>
+                                <small class="h-text--gray h-text--right">{{contact.messages.at(-1).date}}</small>
+                            </div>
+                            <div class="l-row">
+                                <p class="h-text--gray c-chatList__lastMsg">{{contact.messages.at(-1).message}}</p>
+                                <div v-if="contact.notViewedMsg > 0"
+                                    class="c-chatList__newMsgCounter">{{contact.notViewedMsg}}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -87,9 +89,9 @@
                         <i class="fas fa-bars"></i>
                     </button>
                     <img class="c-avatar" :src="`img/avatar${contacts[openChatIndex].avatar}.jpg`" alt="User Avatar">
-                    <div class="l-col l-grow">
-                        <p class="c-nome">{{contacts[openChatIndex].name}}</p>
-                        <p class="h-text--gray">Last access at {{contacts[openChatIndex].messages.at(-1).date}}</p>
+                    <div class="l-col l-grow l-overflow--hidden">
+                        <p class="c-nome c-chat__info">{{contacts[openChatIndex].name}}</p>
+                        <p class="h-text--gray c-chat__info">Last access at {{contacts[openChatIndex].messages.at(-1).date}}</p>
                     </div>
                     <div class="l-row c-infoBar__icons">
                         <button class="c-btnIcon">

@@ -30,6 +30,7 @@ body {
 /* LAYOUTS  */
 .l-main {
     height: 100vh;
+    width: 100vw;
     padding: 1.5rem 6rem;
 }
 
@@ -39,6 +40,9 @@ body {
 }
 .l-row--centered {
     align-items: center;
+}
+.l-row--spaceBetween {
+    justify-content: space-between;
 }
 .l-col {
     display: flex;
@@ -52,6 +56,9 @@ body {
 }
 .l-overflow {
     overflow-y: scroll;
+}
+.l-overflow--hidden {
+    overflow-x: hidden;
 }
 
 /* COMPONETS  */
@@ -87,7 +94,7 @@ body {
 }
 
 .c-btnIcon {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     color: var(--gray-4);
     margin: 0 .5rem;
     border: none;
@@ -101,7 +108,8 @@ body {
     transform: scale(.9);
 }
 
-.c-burgerBtn {
+.c-burgerBtn,
+.c-exitBtn {
     display: none;
 }
 
@@ -153,6 +161,12 @@ body {
 .c-chatList__chat--open {
     background-color: var(--gray-3);
 }
+.c-chatList__lastMsg {
+    max-width: 10rem; 
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
 .c-chatList__newMsgCounter {
     margin-left: auto;
     background-color: var(--gray-2);
@@ -167,6 +181,15 @@ body {
 /* open chat */
 .c-chat {
     border-left: solid 2px var(--gray-4);
+}
+.c-chat__info {
+    white-space: nowrap;                   
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 90%;  
+
+    direction: rtl;
+    text-align: left;
 }
 .c-chat__content {
     background-image: url(../img/mine.jpg);
@@ -191,7 +214,8 @@ body {
 .c-msg__text {
     font-size: .875rem;
     margin: .325rem;
-    word-break: break-all;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
 }
 .c-msg__time {
     font-size: .625rem;
@@ -249,7 +273,10 @@ body {
 
 /* HELPERS */
 .h-text--gray {
-    color: var(--gray-5)
+    color: var(--gray-5);
+}
+.h-text--right {
+    text-align: right;
 }
 .h-border {
     border: 1px solid black;
@@ -265,12 +292,35 @@ body {
 @media screen and (max-width: 800px) {
     .c-sidebar{
         display: none;
+        position: absolute;
+        z-index: 1;
+        background-color: var(--gray-0);
+        border-right: 1px solid var(--gray-4);
     }
     .c-sidebar.h-toggle {
         display: block;
     }
-    .c-burgerBtn {
+    .c-burgerBtn,
+    .c-exitBtn {
         display: block;
-    }    
+    }  
+
+    /* .c-chat {
+        width: 100vw;
+    }   */
+}
+@media screen and (max-width: 500px) {
+    .c-sidebar{
+        width: 100%;
+    }
+    .c-exitBtn {
+        display: none;
+    } 
+    .c-chat {
+        width: 100vw;
+    }
+    .c-chat__info {
+        max-width: 60%;
+    }
 }
 
