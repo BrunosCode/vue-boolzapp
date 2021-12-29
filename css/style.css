@@ -389,6 +389,11 @@ body {
         background-color: var(--gray-0);
         border-right: 1px solid var(--gray-4);
     }
+    .h-dark .c-sidebar{
+        background-color: var(--gray-8);
+        border-right: 1px solid var(--gray-7);
+    }
+    
     .c-sidebar.h-toggle {
         display: block;
     }
