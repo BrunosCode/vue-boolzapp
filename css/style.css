@@ -17,14 +17,22 @@ body {
     --gray-3: #EAEAEA;
     --gray-4: #B1B1B1;
     --gray-5: #6B7376;
+    --gray-6: #2C3032;
+    --gray-7: #22282B;
+    --gray-8: #141A1E;
     --black: #070707;
     
     --lightBeige: #F3EEEA;
     --beige: #DADBD3;
 
     --lightBlue: #8EDAFC;
+    --blue: #3b6d88;
+
+
     --lightGreen: #D5F9BA;
-    --darkGreen: #009688;
+    --green: #009688;
+
+    --darkGreen: #095657;
   }
 
 /* LAYOUTS  */
@@ -64,10 +72,17 @@ body {
 
 /* COMPONETS  */
 .c-background {
-    background: linear-gradient(to bottom, var(--darkGreen) 18%, var(--beige) 18%);
+    background: linear-gradient(to bottom, var(--green) 18%, var(--beige) 18%);
+}
+.c-background.h-dark {
+    background: linear-gradient(to bottom, var(--darkGreen) 18%, var(--black) 18%);
 }
 .c-app {
     background-color: var(--gray-0);
+}
+.c-app.h-dark {
+    background-color: var(--black);
+    color: var(--gray-0);
 }
 
 /* common componets  */
@@ -76,9 +91,15 @@ body {
     padding: 1rem;
     background-color: var(--gray-3);
 }
+.h-dark .c-infoBar {
+    background-color: var(--gray-7);
+}
 
 .c-nome {
     font-weight: 700;
+}
+.h-dark .c-nome {
+    color: var(--gray-0);
 }
 
 .c-avatar {
@@ -92,6 +113,10 @@ body {
     border: none;
     border-radius: .5rem;
     padding: .75rem .5rem;
+}
+.h-dark .c-input {
+    background-color: var(--gray-7);
+    color: var(--gray-1);
 }
 
 .c-btnIcon {
@@ -119,6 +144,9 @@ body {
     background-color: var(--lightBlue);
     padding: .5rem .75rem;
 }
+.h-dark .c-alert {
+    background-color: var(--blue);
+}
 .c-alert__icon {
     display: block;
     width: 3rem;
@@ -133,12 +161,24 @@ body {
     
     margin-right: .5rem;
 }
+.h-dark .c-alert__icon {
+    color: var(--blue);
+}
+.h-dark .c-alert__icon {
+    background-color: var(--gray-7);
+}
 
 .c-searchBar {
     background-color: var(--gray-2);
     padding: .25rem;
     position: relative;
 }
+.h-dark .c-searchBar {
+    background-color: var(--gray-8);
+    padding: .25rem;
+    position: relative;
+}
+
 .c-searchBar::before {
     position: absolute;
     left: 1.5rem;
@@ -150,6 +190,7 @@ body {
 .c-searchBar__input {
     padding-left: 3.5rem;
 }
+
 
 .c-chatList__chat {
     border-top: solid 1px var(--gray-3);
@@ -177,11 +218,29 @@ body {
     text-align: center;
     line-height: 1.5rem;
 }
+.h-dark .c-chatList {
+    background-color: var(--gray-8);
+}
+.h-dark .c-chatList__chat {
+    border-top: solid 1px var(--gray-7);
+}
+.h-dark .c-chatList__chat:hover {
+    background-color: var(--gray-7);
+}
+.h-dark .c-chatList__chat--open {
+    background-color: var(--gray-7);
+}
+.h-dark .c-chatList__newMsgCounter {
+    background-color: var(--gray-7);
+}
 
 /* second column  */
 /* open chat */
 .c-chat {
     border-left: solid 2px var(--gray-4);
+}
+.h-dark .c-chat {
+    border-left: solid 2px var(--gray-8);
 }
 .c-chat__info {
     white-space: nowrap;                   
@@ -193,8 +252,11 @@ body {
     text-align: left;
 }
 .c-chat__content {
-    background-image: url(../img/mine.jpg);
+    background-image: url(../img/pattern.jpg);
     padding: 1rem 7.5%;
+}
+.h-dark .c-chat__content {
+    background-image: url(../img/pattern-dark.jpg);
 }
 .c-msg {
     position: relative;
@@ -208,9 +270,17 @@ body {
     align-self: flex-end;
     background-color: var(--lightGreen);
 }
+.h-dark .c-msg--sent {
+    background-color: var(--darkGreen);
+    color: var(--gray-1);
+}
 .c-msg--received {
     align-self: flex-start;
     background-color: var(--gray-0);
+}
+.h-dark .c-msg--received {
+    background-color: var(--gray-6);
+    color: var(--gray-1);
 }
 .c-msg__text {
     font-size: .875rem;
@@ -258,9 +328,18 @@ body {
     text-align: center;
     padding: .5rem;
 }
+.h-dark .c-smMenu__btn {
+    background-color: var(--gray-8);
+    border: 1px solid var(--gray-7);
+    color: var(--gray-4);
+}
 .c-smMenu__btn:hover {
     cursor: pointer;
     background-color: var(--gray-2);
+}
+.h-dark .c-smMenu__btn:hover {
+    background-color: var(--gray-7);
+    color: var(--gray-1);
 }
 
 /* Input bar */
@@ -268,13 +347,25 @@ body {
     background-color: var(--lightBeige);
     padding: .5rem 2rem; 
 }
+.h-dark .c-inputBar {
+    background-color: var(--gray-8);
+}
 .c-inputBar__input {
     margin: 0 2rem;
 }
 
 /* HELPERS */
+.h-text {
+    color: var(--black);
+}
+.h-dark  .h-text {
+    color: var(--gray-1);
+}
 .h-text--gray {
     color: var(--gray-5);
+}
+.h-dark  .h-text--gray {
+    color: var(--gray-4);
 }
 .h-text--right {
     text-align: right;

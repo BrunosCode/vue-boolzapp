@@ -91,7 +91,8 @@ const app = new Vue (
             openChatIndex: 0,
             openMenuIndex: -1,
             newMsg: {},
-            searchParameter: ""
+            searchParameter: "",
+            darkMode: false
         },
         computed: {
             mappedContacts: function() {

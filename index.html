@@ -16,7 +16,7 @@
     <title>Boolzapp</title>
 </head>
 <body>
-    <main id="root" class="l-main l-row c-background">
+    <main id="root" class="l-main l-row c-background" :class="{'h-dark': darkMode}">
         <!-- App window -->
         <div class="l-row l-grow c-app">
             <!-- First column -->
@@ -35,6 +35,11 @@
                         <button class="c-btnIcon">
                             <i class="fas fa-ellipsis-v"></i>
                         </button>
+                        <button @click="darkMode = !darkMode"
+                            class="c-btnIcon">
+                            <i v-if="!darkMode" class="fas fa-moon"></i>
+                            <i v-if="darkMode" class="fas fa-sun"></i>
+                        </button>
                         <button @click="hiddenSideBar = false"
                             class="c-btnIcon c-exitBtn">
                             <i class="fas fa-times"></i>
@@ -47,7 +52,7 @@
                         <i class="fas fa-bell-slash"></i>
                     </div>
                     <div class="l-col">
-                        <p>Ricevi notifiche di nuovi messaggi</p>
+                        <p class="h-text">Ricevi notifiche di nuovi messaggi</p>
                         <a href="#" class="h-text--gray">Attiva notifiche desktop</a>
                     </div>
                 </div>
